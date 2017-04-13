@@ -23,11 +23,27 @@ npm install {{name}} --save
 ```
 {{/usage}}
 
+{{#scripts.serve}}
+## Serve
+
+```sh
+npm install
+npm run serve
+```
+{{/scripts.serve}}
+
+{{#scripts.build}}
+## Build
+
+```sh
+npm run build
+```
+{{/scripts.build}}
+
 {{#scripts.test}}
 ## Tests
 
 ```sh
-npm install
 npm test
 ```
 {{/scripts.test}}
