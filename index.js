@@ -87,7 +87,15 @@ var getDeps = function (deps) {
 if (pkg.dependencies) pkg.depDetails = getDeps(pkg.dependencies)
 if (pkg.devDependencies) pkg.devDepDetails = getDeps(pkg.devDependencies)
 
-var templatePath = path.join(__dirname, 'template.md')
-var template = hogan.compile(fs.readFileSync(templatePath).toString())
+var templatePath = path.join(pkgPath.replace(/package\.json/g, ''), 'template.md')
+var hasCustomTemplate = !!fs.readFileSync(templatePath).toString().trim();
+var template;
+
+if(hasCustomTemplate) {
+  template = hogan.compile(fs.readFileSync(templatePath).toString())
+} else {
+  templatePath = path.join(__dirname, 'template.md')
+}
+template = hogan.compile(fs.readFileSync(templatePath).toString())
 
 process.stdout.write(template.render(pkg))
