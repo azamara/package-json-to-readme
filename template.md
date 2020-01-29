@@ -2,6 +2,8 @@
 
 {{description}}
 
+[![](https://img.shields.io/badge/github-link-green?logo=github&style=for-the-badge)](./)
+
 {{^private}}
 ## Installation
 
